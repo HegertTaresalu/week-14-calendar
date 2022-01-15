@@ -5,17 +5,14 @@ const countDown = document.querySelector(".countDown");
 const targetData = new Date("Dec 24, 2021, 00:00:01").getTime();
 
 const interval = setInterval(() =>{
-    console.log("tick");
     
     const now =  new Date().getTime();
-    console.log(now);
 
     const timeLeft = targetData - now;
     const days = Math.floor(timeLeft/(1000*60*60*24));
     const hours = Math.floor(timeLeft/(1000*60*60)%24);
     const minutes = Math.floor(timeLeft/(1000*60)%60);
     const seconds = Math.floor(timeLeft/(1000)%60);
-    console.log(minutes)
 
 
     countDown.innerHTML = `
@@ -28,7 +25,6 @@ const interval = setInterval(() =>{
 
 
 btn.addEventListener("click",(event)=>{
-    console.log("test");
 
     for (let i = 0; i < calendarMonth; i++) {
         const calendarDoor = document.createElement("div");       
@@ -43,8 +39,7 @@ btn.addEventListener("click",(event)=>{
         calendarContainer.appendChild(calendarDoor);
 
         let pickNumber = i+1
-        let picPath = `../img/img${pickNumber}.jpg`
-
+        let picPath = `./img/img${pickNumber}.jpg`
         calendarDoorText.addEventListener("click",(event) =>{
             event.target.parentNode.style.backgroundImage = `url("${picPath}")`;
             event.target.style.opacity = 0;
